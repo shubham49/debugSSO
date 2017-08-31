@@ -1,0 +1,98 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>App_SSO</display-name>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>BasicAuthSimpleTestServlet</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<url-pattern>/</url-pattern>
+			<http-method>POST</http-method>
+			<http-method>GET</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>negotiateAdminRole</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<description>no description</description>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+
+	<security-role>
+		<role-name>negotiateAdminRole</role-name>
+	</security-role>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>default</realm-name>
+	</login-config>
+
+	<servlet>
+		<servlet-name>BasicAuthSimpleTestServlet</servlet-name>
+		<servlet-class>wlstest.functional.security.negotiate.servlet.SimpleTestServlet</servlet-class>
+	</servlet>
+
+	<welcome-file-list>
+		<welcome-file>/BasicAuthSimpleTestServlet</welcome-file>
+	</welcome-file-list>
+
+	<servlet-mapping>
+		<servlet-name>BasicAuthSimpleTestServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app> -->
+
+
+
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 1.2//EN" "http://bit.ly/119WD9Q">
+<web-app>
+    <display-name>App_SO</display-name>
+  <error-page>
+    <error-code>401</error-code>
+    <location>/autherror.jsp</location>
+  </error-page>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>BasicAuthSimpleTestServlet</web-resource-name>
+            <url-pattern>/secure/*</url-pattern>
+            <!-- <url-pattern>/</url-pattern> -->
+            <http-method>POST</http-method>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>negotiateAdminRole</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <description>no description</description>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-role>
+        <role-name>negotiateAdminRole</role-name>
+    </security-role>
+
+    <login-config>
+        <auth-method>CLIENT-CERT</auth-method>
+        <realm-name>default</realm-name>
+    </login-config>
+
+    <servlet>
+        <servlet-name>BasicAuthSimpleTestServlet</servlet-name>
+        <servlet-class>wlstest.functional.security.negotiate.servlet.SimpleTestServlet</servlet-class>
+    </servlet>
+
+    <welcome-file-list>
+        <welcome-file>/index.html</welcome-file>
+    </welcome-file-list>
+
+    <servlet-mapping>
+        <servlet-name>BasicAuthSimpleTestServlet</servlet-name>
+        <url-pattern>/secure/</url-pattern>
+    </servlet-mapping>
+
+</web-app>

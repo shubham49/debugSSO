@@ -1,0 +1,9 @@
+<!DOCTYPE weblogic-web-app PUBLIC "-//BEA Systems, Inc.//DTD Web Application 8.1//EN" "http://www.bea.com/servers/wls810/dtd/weblogic810-web-jar.dtd">
+<weblogic-web-app>
+  <security-role-assignment>
+    <role-name>negotiateAdminRole</role-name>
+<!--     <principal-name>dhs_weblogic</principal-name> -->
+    <principal-name>CARES_TEST</principal-name>
+    <principal-name>Administrators</principal-name>
+  </security-role-assignment>
+</weblogic-web-app>
